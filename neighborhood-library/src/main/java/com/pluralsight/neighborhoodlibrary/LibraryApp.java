@@ -1,17 +1,15 @@
 package com.pluralsight.neighborhoodlibrary;
 
+
 public class LibraryApp {
-    public static void main(String[] args)
-    {
-     String userInput;
-     boolean isRunning, inStock;
-    // StringBuilder textCentered = new StringBuilder();
+    public static void main(String[] args) throws InterruptedException {
+     String userInput = "";
+     boolean isRunning;
+    StringBuilder textCentered = new StringBuilder();
 
 
-     while (isRunning = true)
-     {
+     while (true) {
          Object CenterText = new Object();
-         Object centerText = CenterText;
          System.out.println("+----------------------------------------------------+\n" +
                             "|                                                    |\n" +
                             "|               Welcome to the                       |\n" +
@@ -27,10 +25,61 @@ public class LibraryApp {
                             "\n" +
                             "3: Exit\n" +
                             "\n");
+         String choice = userInput.toLowerCase();
+
+         try {
+             int intChoice = Integer.parseInt(choice);
+             switch (intChoice) {
+                 case 1:
+                     System.out.println("Opening Neighborhood Library");
+                     //Thread.sleep(1500);
+                     break;
+
+                 case 2:
+                     System.out.println("Opening Configuration");
+                     //Thread.sleep(1500);
+                     break;
+                 case 3:
+                     System.out.println("Exiting");
+                     //Thread.sleep(1500);
+                     isRunning = false;
+                     break;
+
+                 default:
+                     System.out.println("Invalid option. Please select an option from the menu");
+             }
+         } catch (NumberFormatException e) {
+             switch (choice) {
+                 case "books":
+                     System.out.println("Opening Neighborhood Library");
+                     //Thread.sleep(1500);
+                     break;
+
+                 case "configuration":
+                     System.out.println("Opening system configuration");
+                     //Thread.sleep(1500);
+                     break;
+
+                 case "exit":
+                     System.out.println("Exiting");
+                     //Thread.sleep(1500);
+                     isRunning = false;
+                     break;
+
+                 default:
+                     System.out.println("Invalid option. Please select an option from the menu");
+             } break;
+         }
+         //catch (InterruptedException e) {
+         // throw new RuntimeException(e);}
+
      }
 
+
+
     }
-            public class CenterText {
+    // Center displayed text
+            public static class CenterText {
                 public static void main(String[] args) {
                     String text = "";
                     int terminalWidth = 80; // You can adjust this to your terminal's width
@@ -46,60 +95,4 @@ public class LibraryApp {
         }
 
 
-/*  System.out.println("""
-                    Welcome. Please select and option from below.
-                    1: Mortgage Calculator
-                    2: CD Value
-                    3: Annuity Value
-                    4: Exit
-                    """);
-            String choice = userAnswer.nextLine().toLowerCase();
-
-            //Checks for numeric answer and converts string to int
-            try {
-                int intChoice = Integer.parseInt(choice);
-                switch (intChoice) {
-                    case 1:
-                        System.out.println("Opening Mortgage Calculator");
-                        //consoleClear();
-                        mortgage.mortgageCalc();
-                        break;
-                    case 2:
-                        System.out.println("Opening CD Value Calculator");
-                        cdValue.cdCalc();
-                        break;
-                    case 3:
-                        System.out.println("Opening Annuity Value Calculator");
-                        System.out.println("Well this is embarrassing. There's nothing" +
-                                "here");
-
-                        break;
-                    case 4:
-                        System.out.println("Exiting Application");
-                        exit = true;
-                        break;
-                    default:
-                        System.out.println("Invalid option. Please select another");
-                }
-            } catch (NumberFormatException e) {
-                switch (choice) {
-                    case "mortgage calculator":
-                        System.out.println("Opening Mortgage Calculator");
-                        break;
-                    case "cd value":
-                        System.out.println("Opening CD Value Calculator");
-                        break;
-                    case "annuity value":
-                        System.out.println("Opening Annuity Value Calculator");
-                        System.out.println("Well this is embarrassing. There's nothing" +
-                                "here");
-                        break;
-                    case "exit":
-                        System.out.println("Exiting Application");
-                        exit = true;
-                        break;
-                    default:
-                        System.out.println("Invalid option. Please select another");
-                }
-            }*/
 
