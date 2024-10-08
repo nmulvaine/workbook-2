@@ -17,11 +17,12 @@ public class Book {
         }
 
         public static bookList (){
+            this title = title;
             
         }
 
         BookInfo bookList= {
-            ("The Pragmatic Programmer", "978-0201616224", "1"),
+                ("The Pragmatic Programmer", "978-0201616224", "1"),
         ("Clean Code", "978-0132350884", "2"),
         ("Design Patterns", "978-0201633610", "3"),
         ("Code Complete", "978-0735619678", "4"),
