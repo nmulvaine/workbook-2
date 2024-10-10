@@ -1,15 +1,18 @@
 package com.pluralsight.neighborhoodlibrary;
+import java.util.Scanner;
 
 
 public class LibraryApp {
     public static void main(String[] args) throws InterruptedException {
-     String userInput = "";
-     boolean isRunning;
-    StringBuilder textCentered = new StringBuilder();
+     String userInput;
+
+     boolean isRunning = true;
+     Book book = new Book("The Pragmatic Programmer", "978-0201616224", "1");
+     Scanner scan = new Scanner (System.in);
 
 
-     while (true) {
-         Object CenterText = new Object();
+     while (isRunning) {
+
          System.out.println("+----------------------------------------------------+\n" +
                             "|                                                    |\n" +
                             "|               Welcome to the                       |\n" +
@@ -25,14 +28,18 @@ public class LibraryApp {
                             "\n" +
                             "3: Exit\n" +
                             "\n");
-         String choice = userInput.toLowerCase();
+         userInput = scan.nextLine().toLowerCase();
+
+
 
          try {
-             int intChoice = Integer.parseInt(choice);
+             int intChoice = Integer.parseInt(userInput);
              switch (intChoice) {
                  case 1:
                      System.out.println("Opening Neighborhood Library");
-                     //Thread.sleep(1500);
+                     for (Book b: Book.bookList){
+                         System.out.println(b);
+                     }
                      break;
 
                  case 2:
@@ -49,7 +56,7 @@ public class LibraryApp {
                      System.out.println("Invalid option. Please select an option from the menu");
              }
          } catch (NumberFormatException e) {
-             switch (choice) {
+             switch (userInput) {
                  case "books":
                      System.out.println("Opening Neighborhood Library");
                      //Thread.sleep(1500);
@@ -70,11 +77,12 @@ public class LibraryApp {
                      System.out.println("Invalid option. Please select an option from the menu");
              } break;
          }
+
          //catch (InterruptedException e) {
          // throw new RuntimeException(e);}
 
      }
-
+        scan.close();
 
 
     }
